@@ -1,0 +1,22 @@
+
+
+*{
+    padding: 0;
+    }
+    
+    body{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #fec5bb;
+    }
+    
+    h1{
+    color: #cdb4db;
+    }
+    
+    #map{
+    width: 98vw;
+    height: 500px;
+    border: 5px solid #d8e2dc;
+    border-radius: 10px;
+    }

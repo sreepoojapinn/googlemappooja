@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>My Google Map</title>
+</head>
+<body>
+    <h1>My Map </h1>
+    <div id="map"></div>
+    <script>
+        function initMap(){
+            var options = {
+                zoom: 4,
+                center:{lat:20.5937 , lng:78.9629}
+
+            }
+            var map = new google.maps.Map(document.getElementById('map'),options);
+
+            var markers = [
+                {coords: {lat:12.9716, lng:77.5946},
+                content : '<p>Bangalore</p>'},
+
+               { coords: {lat:29.7604, lng:95.3698},
+                content : '<p>Houston</p>'} ,
+
+               { coords: {lat:37.3382, lng:121.8863},
+                content : '<p>San Jose</p>'}
+
+               
+            ]
+            for (var i=0; i< markers.length; i++){
+                addMarker(markers[i])
+            }
+
+            function addMarker(props){
+                var marker = new google.maps.Marker({
+                    position: props.coords,
+                    map:map
+                })
+                marker.addListener('click', function(){
+                    infowindow.open(map,marker)
+                    })
+            }
+        }
+    </script>
+
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZE_ga5iqBJz0Um5e_7Fnbglxs-9kJfm4&callback=initMap"
+      async>
+</script>
+
+</body>
+</html>
